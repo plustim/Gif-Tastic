@@ -41,19 +41,18 @@ $(document).ready(function(){
 			// construct a div for each item in the returned array (note: I called for 24 images so the page would be fuller)
 			$.each(response.data, function(i, val){
 				var p = $("<p>").text("Rating: " + val.rating.toUpperCase());
-				var gif = $("<img>").attr("data-state", "still").attr("src", val.images.fixed_height_still.url).attr("data-still", val.images.fixed_height_still.url).attr("data-animate", val.images.fixed_height.url);
-				var itemDiv = $("<div>").append(p, gif);
+				var vid = $("<video>").attr("preload", "none").attr("loop", "loop").attr("poster", val.images.fixed_height_still.url).append("<source src='" + val.images.fixed_height.mp4 + "' type='video/mp4'>");
+				var itemDiv = $("<div>").append(p, vid);
 				$("#the-gifs").append(itemDiv, " ");
 			});
 		});
 	}
 
-	$("#the-gifs").on("click", "img", function() {
-		var state = $(this).attr("data-state");
-		if ( state === "still" ){
-			$(this).attr("src", $(this).attr("data-animate")).attr("data-state", "animate");
-		}else if ( state === "animate" ){
-			$(this).attr("src", $(this).attr("data-still")).attr("data-state", "still");
+	$("#the-gifs").on("click", "video", function() {
+		if ( this.currentTime === 0 || this.paused ){
+			this.play();
+		}else{
+			this.pause();
 		}
 	});
 

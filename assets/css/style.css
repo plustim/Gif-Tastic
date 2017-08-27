@@ -41,7 +41,7 @@ header:after{
 #topic-form{
 	float: right;
 	color: white;
-	padding: 0 0 10px;
+	padding: 0 10px 10px;
 }
 
 #topic-input{
@@ -75,4 +75,7 @@ header:after{
 
 #the-gifs div:hover p{
 	top: -24px;
+}
+#the-gifs video{
+	height: 200px;
 }
