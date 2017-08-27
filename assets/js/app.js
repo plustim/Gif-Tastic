@@ -21,7 +21,6 @@ $(document).ready(function(){
 
 	// This function handles events where the add movie button is clicked
 	$("#add-topic").on("click", function(event) {
-		// event.preventDefault();
 		// only works if the field isn't empty
 		if( $("#topic-input").val() ){
 			// The topic from the input field is added to topics array
@@ -34,24 +33,18 @@ $(document).ready(function(){
 	$("#topic-buttons").on("click", ".topic", makeGifs);
 	function makeGifs(){
 		$("#note").empty();
-		var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + $(this).text() + "&api_key=cd348e08c50247ec84489456201900ba&limit=10";
+		var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + $(this).text() + "&api_key=cd348e08c50247ec84489456201900ba&limit=10";
 		$.ajax({
 			url: queryURL,
 			method: "GET"
 		}).done(function(response) {
-
-			console.log(response);
-
-			var results = response.data;
-
-			$.each(results, function(i, val){
+			// construct a div for each item in the returned array
+			$.each(response.data, function(i, val){
 				var p = $("<p>").text("Rating: " + val.rating.toUpperCase());
 				var gif = $("<img>").attr("data-state", "still").attr("src", val.images.fixed_height_still.url).attr("data-still", val.images.fixed_height_still.url).attr("data-animate", val.images.fixed_height.url);
 				var itemDiv = $("<div>").append(p, gif);
 				$("#the-gifs").prepend(itemDiv, " ");
 			});
-
-			
 		});
 	}
 
