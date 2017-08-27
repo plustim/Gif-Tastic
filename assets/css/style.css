@@ -1,0 +1,78 @@
+@import url('reset.css');
+
+body{
+	background: white url("../images/crossword.png");
+	font-family: sans-serif;
+}
+
+header{
+	background: #222;
+	padding: 10px 0 0;
+}
+
+header:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+
+#topic-buttons{
+	float: left;
+	padding: 0 0 10px;
+}
+
+.topic, #add-topic{
+	border: 2px solid white;
+	border-radius: 13px;
+	background: #222;
+	padding: 4px 10px;
+	margin: 0 5px;
+	font-size: 16px;
+	color: white;
+}
+
+.topic:active, .topic:focus, .topic:hover,
+#add-topic:active, #add-topic:focus, #add-topic:hover{
+	background: white;
+	color: black;
+	outline: 0;
+}
+
+#topic-form{
+	float: right;
+	color: white;
+	padding: 0 0 10px;
+}
+
+#topic-input{
+	font-size: 16px;
+	padding: 2px;
+	max-width: 120px;
+}
+
+#the-gifs{
+	padding: 10px;
+	text-align: justify;
+}
+
+#the-gifs div{
+	display: inline-block;
+	overflow: hidden;
+	position: relative;
+	margin: 5px;
+}
+
+#the-gifs div p{
+	position: absolute;
+	top:0;
+	left:0;
+	background: #222;
+	color: white;
+	height: 18px;
+	padding: 2px 6px 4px;
+	transition: 0.1s linear top;
+}
+
+#the-gifs div:hover p{
+	top: -24px;
+}
