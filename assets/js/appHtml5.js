@@ -3,12 +3,12 @@
 *																*
 *  Uses an array of topics to create buttons that generate a	*
 *  list of images (using Giphy api) upon click. The images		*
-*  must alternate between animated and static when clicked.		*
+*  play video content when clicked, then pause if clicked again.*
 ****************************************************************/		
 
 $(document).ready(function(){
 
-	var topics = ["cat", "train", "pizza"];
+	var topics = ["unicorn", "dragon", "griffon", "centaur", "minotaur"];
 
 	function renderButtons() {
 		$("#topic-buttons").empty();
@@ -19,12 +19,14 @@ $(document).ready(function(){
 		});
 	}
 
-	// This function handles events where the add movie button is clicked
-	$("#add-topic").on("click", function(event) {
-		// only works if the field isn't empty
-		if( $("#topic-input").val() ){
+	$("#topic-form").on("submit", function( event ) {
+  		event.preventDefault();
+  		var newTopic = $("#topic-input").val().trim();
+		// only works if the field isn't empty and isn't a repeat
+		if( newTopic && $.inArray(newTopic, topics) === -1 ){
 			// The topic from the input field is added to topics array
-			topics.push( $("#topic-input").val().trim() );
+			topics.push( newTopic );
+			$("#topic-input").val("");
 			// Show the new buttons
 			renderButtons();
 		}
