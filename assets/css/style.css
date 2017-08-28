@@ -7,7 +7,7 @@ body{
 
 header{
 	background: #222;
-	padding: 10px 0 0;
+	padding: 6px 0 0;
 }
 
 header:after{
@@ -18,7 +18,7 @@ header:after{
 
 #topic-buttons{
 	float: left;
-	padding: 0 0 10px;
+	padding: 0 0 6px;
 }
 
 .topic, #add-topic{
@@ -26,7 +26,7 @@ header:after{
 	border-radius: 13px;
 	background: #222;
 	padding: 4px 10px;
-	margin: 0 5px;
+	margin: 4px 5px;
 	font-size: 16px;
 	color: white;
 }
@@ -41,7 +41,7 @@ header:after{
 #topic-form{
 	float: right;
 	color: white;
-	padding: 0 10px 10px;
+	padding: 0 10px 6px;
 }
 
 #topic-input{
