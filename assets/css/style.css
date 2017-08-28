@@ -29,6 +29,7 @@ header:after{
 	margin: 4px 5px;
 	font-size: 16px;
 	color: white;
+	cursor: pointer;
 }
 
 .topic:active, .topic:focus, .topic:hover,
